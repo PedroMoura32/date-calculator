@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap" rel="stylesheet"> 
+
+    <title>Calcula Data</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Data com acréscimo</h2>
+        </div>
+        <form id="form" class="form">
+            <div class="form-control">
+                <label>Data</label>
+                <input id="date" type="date"></br>
+                <small>Mensagem de erro</small>
+            </div>
+            
+            <div class="form-control">
+                <label>Dias</label>
+                <input id="days" type="number" placeholder="Quantidade de dias para acrescentar..."></br>
+                <i class="fas fa-exclamation-circle"></i>
+                <i class="fas fa-check-circle"></i>
+                <small>Mensagem de erro</small>
+            </div>
+
+            <div id="response">
+                <p>Resultado da data com acréscimo de dias</p>
+            </div>
+
+            <button type="submit"> Nova Data </button>
+        </form>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script 
+        src="https://kit.fontawesome.com/02c62dcdab.js" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
