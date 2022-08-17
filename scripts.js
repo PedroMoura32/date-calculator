@@ -38,21 +38,19 @@ form.addEventListener('submit', (e) => {
 })
 
 function checkInputs() {
-    const dateValue = date.value
-    const daysValue = days.value
+    const validate = dateValidate.value
+    const opened = dateOpened.value
 
-    if (dateValue === '') {
-        setErrorFor(date, "Data obrigatória!")
+    if (validate === '') {
+        setErrorFor(dateValidate, "Data de Validade obrigatória!")
     } else {
-        setSuccessFor(date)
+        setSuccessFor(dateValidate)
     }
 
-    if (daysValue === '') {
-        setErrorFor(days, "Quantidade de dias obrigatório!")
-    } else if(daysValue <= 0) {
-        setErrorFor(days, 'Valor não pode ser menor ou igual a 0(zero)!')
+    if (opened === '') {
+        setErrorFor(dateOpened, "Data de Abertura obrigatória!")
     } else {
-        setSuccessFor(days)
+        setSuccessFor(dateOpened)
     }
 }
 
