@@ -8,8 +8,8 @@
 
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap" rel="stylesheet">
 
     <title>Calcula Data</title>
 </head>
@@ -21,21 +21,21 @@
         </div>
         <form id="form" class="form">
             <div class="form-control">
-                <label>Data</label>
-                <input id="date" type="date"></br>
+                <label>Data de <strong>validade</strong> do Medicamento</label>
+                <input id="date-validate" type="date"></br>
                 <small>Mensagem de erro</small>
             </div>
-            
+
             <div class="form-control">
-                <label>Dias</label>
-                <input id="days" type="number" placeholder="Quantidade de dias para acrescentar..."></br>
-                <i class="fas fa-exclamation-circle"></i>
+                <label>Data de <strong>abertura</strong> do Medicamento</label>
+                <input id="date-opened" type="date" placeholder="Quantidade de dias para acrescentar..."></br>
+                <!-- <i class="fas fa-exclamation-circle"></i> -->
                 <i class="fas fa-check-circle"></i>
                 <small>Mensagem de erro</small>
             </div>
 
             <div id="response">
-                <p>Resultado da data com acréscimo de dias</p>
+                <h3>Resultado da data com acréscimo de dias</h3>
             </div>
 
             <button type="submit"> Nova Data </button>
@@ -43,8 +43,7 @@
     </div>
 
     <script src="scripts.js"></script>
-    <script 
-        src="https://kit.fontawesome.com/02c62dcdab.js" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/02c62dcdab.js" crossorigin="anonymous">
     </script>
 </body>
 

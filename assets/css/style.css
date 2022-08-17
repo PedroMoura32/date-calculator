@@ -75,6 +75,7 @@ body {
   width: 100%;
   border-radius: 10px;
   padding: 10px;
+  margin-top: 20px
 }
 
 /* Error and Success */
@@ -99,4 +100,8 @@ body {
 .form-control.error small {
   visibility: visible;
   color: #e74c3c;
+}
+
+.response {
+  color: red
 }

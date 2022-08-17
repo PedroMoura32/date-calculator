@@ -3,45 +3,58 @@
 // a quantidade de meses restantes é dividida por 100 depois multiplicada por 25 e por fim
 // somada com a data atual
 
-
-// const initialDate = new Date('2022-01-01')
-// const sumTime = new Date()
-
-// const newDate = new Date(Math.abs(initialDate.getTime() + 2628000000))
-
-// // alert(newDate)
-
 const form = document.getElementById('form')
-const date = document.getElementById('date')
-const days = document.getElementById('days')
+const dateValidate = document.getElementById('date-validate')
+const dateOpened = document.getElementById('date-opened')
 const response = document.getElementById('response')
+
+function formatDate(date) {
+    let newDate = new Date(date.value.replace(/-/g, ','))
+    return `${newDate.getFullYear()},${newDate.getMonth()+1},${newDate.getDate()}`
+}
+function formatDateBR(date) {
+    let newDate = new Date(date)
+    return `${newDate.getDate()}/${newDate.getMonth()+1}/${newDate.getFullYear()}`
+}
+
+function calculaDiff(dtOpened, dtValidate) {
+    let days = Math.abs(dtValidate - dtOpened)
+    return Math.ceil(days / (1000 * 60 * 60 * 24)) 
+}
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    // checkInputs()
+    checkInputs()
 
-    response.innerText = date.value
+    const valid = new Date(formatDate(dateValidate))
+    const opened = new Date(formatDate(dateOpened))
+    
+    const days = calculaDiff(opened, valid)
+
+    const newValidate = opened.setDate(opened.getDate() + (days * 0.25))
+
+    response.innerText = `Nova Data de Validade do medicamento: ${formatDateBR(newValidate)}`
 })
 
-// function checkInputs() {
-//     const dateValue = date.value
-//     const daysValue = days.value
+function checkInputs() {
+    const dateValue = date.value
+    const daysValue = days.value
 
-//     if (dateValue === '') {
-//         setErrorFor(date, "Data obrigatória!")
-//     } else {
-//         setSuccessFor(date)
-//     }
+    if (dateValue === '') {
+        setErrorFor(date, "Data obrigatória!")
+    } else {
+        setSuccessFor(date)
+    }
 
-//     if (daysValue === '') {
-//         setErrorFor(days, "Quantidade de dias obrigatório!")
-//     } else if(daysValue <= 0) {
-//         setErrorFor(days, 'Valor não pode ser menor ou igual a 0(zero)!')
-//     } else {
-//         setSuccessFor(days)
-//     }
-// }
+    if (daysValue === '') {
+        setErrorFor(days, "Quantidade de dias obrigatório!")
+    } else if(daysValue <= 0) {
+        setErrorFor(days, 'Valor não pode ser menor ou igual a 0(zero)!')
+    } else {
+        setSuccessFor(days)
+    }
+}
 
 function setErrorFor(input, message) {
     const formControl = input.parentElement
@@ -60,8 +73,3 @@ function setSuccessFor(input) {
     // Adicinando classe de sucesso
     formControl.className = 'form-control success'
 }
-
-// form.addEventListener('click', (e) => {
-    
-//     response.innerHTML = days.value
-// })
