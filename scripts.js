@@ -34,7 +34,13 @@ form.addEventListener('submit', (e) => {
 
     const newValidate = opened.setDate(opened.getDate() + (days * 0.25))
 
-    response.innerText = `Nova Data de Validade do medicamento: ${formatDateBR(newValidate)}`
+    const h3 = document.querySelector('h3')
+    const h4 = document.querySelector('h4')
+
+    h4.innerText = `Nova Data de Validade do medicamento`
+    h3.innerText = formatDateBR(newValidate)
+    h3.style.color = 'red'
+    // response.style.backgroundColor = '#EAD469'
 })
 
 function checkInputs() {
